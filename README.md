@@ -17,6 +17,10 @@ Then Run `yarn` to install dependencies.
 $ yarn
 ```
 
+### Copy .env file
+
+Copy the `.env.example` file to `.env` file and change the values according to your environment.
+
 ### Postgres Setup (For production)
 
 Install [postgres](https://www.postgresql.org/download/) and setup it according to your OS instructions. Use following
@@ -71,9 +75,8 @@ $ npx prisma db seed
 
 ### Run Project
 
-First copy the `.env.example` file to `.env` file and change the values according to your environment.
-Afterwards try running the project. The default url for the API is [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+The default url for the API is [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ```bash
-$ yarn start
+$ yarn dev
 ```
