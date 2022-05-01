@@ -69,6 +69,9 @@ Then add the initial seed data.
 $ npx prisma db seed
 ```
 
+### Run Project
+
+First copy the `.env.example` file to `.env` file and change the values according to your environment.
 Afterwards try running the project. The default url for the API is [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ```bash
