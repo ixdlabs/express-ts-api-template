@@ -3,6 +3,8 @@ import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+// ------------------------------------ Login --------------------------------------------------------------------------
+
 async function loginUser(email: string, password: string): Promise<User> {
   const user = await prisma.user.findUnique({ where: { email: email } });
   if (!user) throw new Error("No user found");
@@ -12,6 +14,8 @@ async function loginUser(email: string, password: string): Promise<User> {
 
   return user;
 }
+
+// ------------------------------------ Register -----------------------------------------------------------------------
 
 async function registerUser(name: string, email: string, password: string): Promise<User> {
   const user = await prisma.user.findUnique({ where: { email: email } });
@@ -28,6 +32,8 @@ async function registerUser(name: string, email: string, password: string): Prom
 
   return newUser;
 }
+
+// ------------------------------------ Get User -----------------------------------------------------------------------
 
 async function getUser(email: string): Promise<User> {
   const user = await prisma.user.findUnique({ where: { email: email } });

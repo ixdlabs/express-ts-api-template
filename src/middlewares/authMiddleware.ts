@@ -12,6 +12,8 @@ passport.use(
   )
 );
 
+// ------------------------------------ Is Authenticated ---------------------------------------------------------------
+
 const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
   passport.authenticate("jwt", { session: false }, (err, payload) => {
     if (payload) {

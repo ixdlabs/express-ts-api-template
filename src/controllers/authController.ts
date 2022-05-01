@@ -3,6 +3,8 @@ import Joi from "joi";
 import jwt from "jsonwebtoken";
 import authService from "../services/authService";
 
+// ------------------------------------ Schemas ------------------------------------------------------------------------
+
 const loginSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
@@ -13,6 +15,8 @@ const registerSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
+
+// ------------------------------------ Login Controller ---------------------------------------------------------------
 
 async function login(req: Request, res: Response) {
   try {
@@ -32,6 +36,8 @@ async function login(req: Request, res: Response) {
   }
 }
 
+// ------------------------------------ Register Controller ------------------------------------------------------------
+
 async function register(req: Request, res: Response) {
   try {
     const { error, value } = registerSchema.validate(req.body);
@@ -44,6 +50,8 @@ async function register(req: Request, res: Response) {
     res.status(400).json("Registration failed!");
   }
 }
+
+// ------------------------------------ Authenticated User Controller --------------------------------------------------
 
 async function me(req: Request, res: Response) {
   const email = req.user?.email;
