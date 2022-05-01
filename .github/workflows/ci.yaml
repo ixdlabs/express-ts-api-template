@@ -20,9 +20,13 @@ jobs:
     steps:
       - name: Checkout Code Repository
         uses: actions/checkout@v3
-
-      # Run all pre-commit hooks on all the files.
-      # Getting only staged files can be tricky in case a new PR is opened
-      # since the action is run on a branch in detached head state
-      - name: Install and Run Pre-commit
-        uses: pre-commit/action@v2.0.3
+      - name: Install Dependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Build Project
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+      - name: Run Pre-commit Hooks
+        run: bash .git/hooks/pre-commit
