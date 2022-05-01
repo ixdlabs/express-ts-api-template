@@ -28,5 +28,3 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build
-      - name: Run Pre-commit Hooks
-        run: bash .git/hooks/pre-commit
