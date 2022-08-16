@@ -1,5 +1,4 @@
-// const { PrismaClient } = require('@prisma/client');
-// const prisma = new PrismaClient();
+// import prisma from "../utils/dbClient";
 
 const createHelloWorld = (name: string): string => {
   const message = `Hello World ${name}`;
